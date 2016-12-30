@@ -6,15 +6,14 @@ use Sylius\Bundle\WebBundle\Event\MenuBuilderEvent;
 use Sylius\Component\User\Model\CustomerInterface;
 use Sylius\Component\User\Model\UserInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
-use Symfony\Component\Translation\DataCollectorTranslator;
-use Symfony\Component\Translation\Translator;
 use Webburza\Sylius\WishlistBundle\Model\WishlistInterface;
 use Webburza\Sylius\WishlistBundle\Model\WishlistRepositoryInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class FrontendMenuBuilderListener
 {
     /**
-     * @var Translator
+     * @var TranslatorInterface
      */
     protected $translator;
 
@@ -36,13 +35,13 @@ class FrontendMenuBuilderListener
     /**
      * FrontendMenuBuilderListener constructor.
      *
-     * @param DataCollectorTranslator $translator
+     * @param TranslatorInterface $translator
      * @param SecurityContextInterface $securityContext
      * @param WishlistRepositoryInterface $wishlistRepository
      * @param $multipleWishlistMode
      */
     public function __construct(
-        DataCollectorTranslator $translator,
+        TranslatorInterface $translator,
         SecurityContextInterface $securityContext,
         WishlistRepositoryInterface $wishlistRepository,
         $multipleWishlistMode
