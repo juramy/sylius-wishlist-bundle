@@ -6,15 +6,14 @@ use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
 use Sylius\Component\User\Model\CustomerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Translation\DataCollectorTranslator;
-use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\TranslatorInterface;
 use Webburza\Sylius\WishlistBundle\Model\WishlistInterface;
 use Webburza\Sylius\WishlistBundle\Model\WishlistRepositoryInterface;
 
 class CustomerListener
 {
     /**
-     * @var Translator
+     * @var TranslatorInterface
      */
     protected $translator;
 
@@ -31,10 +30,10 @@ class CustomerListener
     /**
      * WishlistListener constructor.
      *
-     * @param DataCollectorTranslator $translator
+     * @param TranslatorInterface $translator
      * @param ContainerInterface $container
      */
-    public function __construct(DataCollectorTranslator $translator, ContainerInterface $container)
+    public function __construct(TranslatorInterface $translator, ContainerInterface $container)
     {
         $this->translator = $translator;
         $this->container = $container;

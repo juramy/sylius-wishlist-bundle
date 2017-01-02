@@ -2,17 +2,16 @@
 namespace Webburza\Sylius\WishlistBundle\EventListener;
 
 use Sylius\Bundle\WebBundle\Event\MenuBuilderEvent;
-use Symfony\Component\Translation\DataCollectorTranslator;
-use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class MenuBuilderListener
 {
     /**
-     * @var Translator
+     * @var TranslatorInterface
      */
     protected $translator;
 
-    public function __construct(DataCollectorTranslator $translator)
+    public function __construct(TranslatorInterface $translator)
     {
         $this->translator = $translator;
     }
